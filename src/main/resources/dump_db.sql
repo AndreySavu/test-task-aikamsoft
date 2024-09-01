@@ -36,8 +36,8 @@ INSERT INTO customers(first_name, last_name) VALUES ('Валентин', 'Пет
 INSERT INTO products (name, price) VALUES ('Минеральная вода', 100);
 INSERT INTO products (name, price) VALUES ('Сыр', 200);
 INSERT INTO products (name, price) VALUES ('Хлеб', 50);
-INSERT INTO products (name, price) VALUES ('Сметана', 101.1);
-INSERT INTO products (name, price) VALUES ('Колбаса', 150.5);
+INSERT INTO products (name, price) VALUES ('Сметана', 101);
+INSERT INTO products (name, price) VALUES ('Колбаса', 150);
 
 INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (1, 1, to_date('01.01.2024', 'dd.mm.yyyy'));
 INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (1, 2, to_date('12.06.2024', 'dd.mm.yyyy'));
