@@ -17,18 +17,18 @@ public class LimitExpensesSearcher extends CriteriaSearcher{
         criteriaResult.setCriteria(limitCriteria);
 
         String sql = "with ct1 as(\n" +
-                "    select purchases.customer_id as customer_id, products.cost as cost\n" +
+                "    select purchases.customer_id as customer_id, products.price as price\n" +
                 "    from purchases inner join products on purchases.product_id = products.id\n" +
                 "),\n" +
                 "ct2 as(\n" +
-                "    select ct1.customer_id, sum(ct1.cost) as total_cost from ct1\n" +
+                "    select ct1.customer_id, sum(ct1.price) as total_price from ct1\n" +
                 "    group by ct1.customer_id\n" +
                 "),\n" +
                 "ct3 as(\n" +
-                "    select customers.firstname, customers.lastname\n" +
+                "    select customers.first_name, customers.last_name\n" +
                 "    from ct2 inner join customers on ct2.customer_id = customers.id\n" +
-                "    where (ct2.total_cost >= "+ limitCriteria.getMinExpenses() +" " +
-                "and ct2.total_cost <= "+ limitCriteria.getMaxExpenses() +")\n" +
+                "    where (ct2.total_price >= "+ limitCriteria.getMinExpenses() +" " +
+                "and ct2.total_price <= "+ limitCriteria.getMaxExpenses() +")\n" +
                 ")\n" +
                 "select * from ct3;";
 

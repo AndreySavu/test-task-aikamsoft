@@ -17,16 +17,16 @@ public class BadCustomersSearcher extends CriteriaSearcher{
         criteriaResult.setCriteria(criteriaBadCustomers);
 
         String sql = "with ct1 as (\n" +
-                "    select c.firstname, c.lastname, count(*) as purchases_count\n" +
+                "    select c.first_name, c.last_name, count(*) as purchases_count\n" +
                 "    from purchases\n" +
                 "        inner join customers c on c.id = purchases.customer_id\n" +
-                "    group by c.lastname, c.firstname\n" +
+                "    group by c.last_name, c.first_name\n" +
                 "),\n" +
                 "    ct2 as(\n" +
                 "        select min(ct1.purchases_count) as min_count from ct1\n" +
                 "    ),\n" +
                 "    ct3 as(\n" +
-                "        select ct1.firstname, ct1.lastname from ct1\n" +
+                "        select ct1.first_name, ct1.last_name from ct1\n" +
                 "        where ct1.purchases_count = (select * from ct2)\n" +
                 "    )\n" +
                 "select * from ct3 limit " + criteriaBadCustomers.getBadCustomers();

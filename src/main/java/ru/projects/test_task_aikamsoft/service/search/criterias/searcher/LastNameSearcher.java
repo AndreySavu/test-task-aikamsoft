@@ -16,8 +16,8 @@ public class LastNameSearcher extends CriteriaSearcher{
         CriteriaResult criteriaResult = new CriteriaResult();
         criteriaResult.setCriteria(criteriaLastName);
 
-        String sql = "select customers.firstname, customers.lastname from customers " +
-                "where customers.lastname like '" + criteriaLastName.getLastName() + "'";
+        String sql = "select customers.first_name, customers.last_name from customers " +
+                "where customers.last_name like '" + criteriaLastName.getLastName() + "'";
 
         List<Customer> foundCustomers = findCustomersBySql(sql);
         criteriaResult.setResultsCustomers(foundCustomers);

@@ -26,7 +26,7 @@ public class ProductTimesSearcher extends CriteriaSearcher{
                 "            group by ct1.customer_id\n" +
                 "),\n" +
                 "ct3 as(\n" +
-                "    select customers.firstname, customers.lastname\n" +
+                "    select customers.first_name, customers.last_name\n" +
                 "    from ct2 inner join customers on ct2.customer_id = customers.id\n" +
                 "    where ct2.purchase_count >= "+ productTimesCriteria.getMinTimes() +"\n" +
                 ")\n" +

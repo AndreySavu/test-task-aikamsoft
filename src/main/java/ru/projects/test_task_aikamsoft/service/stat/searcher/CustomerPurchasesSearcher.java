@@ -17,7 +17,7 @@ public class CustomerPurchasesSearcher{
     public Map<Customer, Purchases> getCustomersPurchasesForPeriod(String startDate, String endDate) throws SQLException {
 
         String sql = "with ct1 as(\n" +
-                "    select customers.firstname, customers.lastname, purchases.product_id\n" +
+                "    select customers.first_name, customers.last_name, purchases.product_id\n" +
                 "    from customers inner join purchases on customers.id = purchases.customer_id\n" +
                 "    where\n" +
                 "    purchases.date_of_purchase >= to_date('"+startDate+"', 'yyyy-mm-dd')\n" +
@@ -26,14 +26,14 @@ public class CustomerPurchasesSearcher{
                 "    and date_part('dow', purchases.date_of_purchase) != 6" +
                 "),\n" +
                 "ct2 as(\n" +
-                "    select ct1.firstname, ct1.lastname, products.name, products.cost\n" +
+                "    select ct1.first_name, ct1.last_name, products.name, products.price\n" +
                 "    from ct1 inner join products on ct1.product_id = products.id\n" +
                 "),\n" +
                 "ct3 as(\n" +
-                "    select ct2.firstname, ct2.lastname, ct2.name, ct2.cost, sum(ct2.cost) as sum\n" +
+                "    select ct2.first_name, ct2.last_name, ct2.name, ct2.price, sum(ct2.price) as sum\n" +
                 "    from ct2\n" +
-                "    group by ct2.firstname, ct2.lastname, ct2.name, ct2.cost\n" +
-                "    order by ct2.firstname\n" +
+                "    group by ct2.first_name, ct2.last_name, ct2.name, ct2.price\n" +
+                "    order by ct2.first_name\n" +
                 ")\n" +
                 "select * from ct3 order by ct3.sum desc;";
 
@@ -51,13 +51,13 @@ public class CustomerPurchasesSearcher{
 
             while (resultSet.next()){
                 Customer customer = new Customer();
-                customer.setFirstName(resultSet.getString("firstname"));
-                customer.setLastName(resultSet.getString("lastname"));
+                customer.setFirstName(resultSet.getString("first_name"));
+                customer.setLastName(resultSet.getString("last_name"));
 
                 if(customersPurchases.containsKey(customer)){
                     Product product = new Product();
                     product.setName(resultSet.getString("name"));
-                    product.setCost(resultSet.getInt("cost"));
+                    product.setCost(resultSet.getInt("price"));
 
                     customersPurchases.get(customer).getPurchasesPerProducts().put(product, resultSet.getInt("sum"));
 
@@ -67,7 +67,7 @@ public class CustomerPurchasesSearcher{
 
                     Product product = new Product();
                     product.setName(resultSet.getString("name"));
-                    product.setCost(resultSet.getInt("cost"));
+                    product.setCost(resultSet.getInt("price"));
 
                     customerPurchases.getPurchasesPerProducts().put(product, resultSet.getInt("sum"));
 
