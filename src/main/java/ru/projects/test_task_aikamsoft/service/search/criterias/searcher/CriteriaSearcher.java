@@ -1,6 +1,6 @@
 package ru.projects.test_task_aikamsoft.service.search.criterias.searcher;
 
-import ru.projects.test_task_aikamsoft.utils.connection.DatabaseConnection;
+import ru.projects.test_task_aikamsoft.utils.connetion.DatabaseConnection;
 import ru.projects.test_task_aikamsoft.entity.Customer;
 import ru.projects.test_task_aikamsoft.service.search.criterias.Criteria;
 import ru.projects.test_task_aikamsoft.result.subresult.CriteriaResult;
