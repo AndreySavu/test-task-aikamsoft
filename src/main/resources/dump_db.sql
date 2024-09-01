@@ -1,3 +1,4 @@
+--db jdbc:postgresql://localhost:5432/aikam_db
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS purchases;
@@ -34,17 +35,23 @@ INSERT INTO customers(first_name, last_name) VALUES ('Николай', 'Иван
 INSERT INTO customers(first_name, last_name) VALUES ('Валентин', 'Петров');
 
 INSERT INTO products (name, price) VALUES ('Минеральная вода', 100);
-INSERT INTO products (name, price) VALUES ('Сыр', 200);
-INSERT INTO products (name, price) VALUES ('Хлеб', 50);
-INSERT INTO products (name, price) VALUES ('Сметана', 101);
-INSERT INTO products (name, price) VALUES ('Колбаса', 150);
+INSERT INTO products (name, price) VALUES ('Хлеб', 30);
+INSERT INTO products (name, price) VALUES ('Сметана', 70);
+INSERT INTO products (name, price) VALUES ('Колбаса', 300);
+INSERT INTO products (name, price) VALUES ('Сыр', 420);
 
-INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (1, 1, to_date('01.01.2024', 'dd.mm.yyyy'));
-INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (1, 2, to_date('12.06.2024', 'dd.mm.yyyy'));
-INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (1, 3, to_date('23.11.2024', 'dd.mm.yyyy'));
-INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (2, 4, to_date('11.05.2024', 'dd.mm.yyyy'));
-INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (2, 5, to_date('23.10.2024', 'dd.mm.yyyy'));
-INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (2, 1, to_date('30.02.2024', 'dd.mm.yyyy'));
-INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (3, 2, to_date('27.03.2024', 'dd.mm.yyyy'));
-INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (3, 3, to_date('30.04.2024', 'dd.mm.yyyy'));
-INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (3, 4, to_date('18.05.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (1, 2, to_date('09.08.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (1, 3, to_date('09.08.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (1, 1, to_date('04.03.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (1, 5, to_date('11.06.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (1, 3, to_date('29.08.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (1, 2, to_date('05.04.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (2, 1, to_date('09.08.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (2, 1, to_date('03.04.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (2, 5, to_date('29.08.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (2, 2, to_date('05.04.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (3, 4, to_date('09.08.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (3, 4, to_date('03.04.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (3, 3, to_date('04.03.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (3, 5, to_date('11.06.2024', 'dd.mm.yyyy'));
+INSERT INTO purchases (customer_id, product_id, purchase_date) VALUES (3, 1, to_date('29.08.2024', 'dd.mm.yyyy'));

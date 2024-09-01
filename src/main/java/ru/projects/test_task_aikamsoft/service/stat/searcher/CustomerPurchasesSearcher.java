@@ -20,10 +20,10 @@ public class CustomerPurchasesSearcher{
                 "    select customers.first_name, customers.last_name, purchases.product_id\n" +
                 "    from customers inner join purchases on customers.id = purchases.customer_id\n" +
                 "    where\n" +
-                "    purchases.date_of_purchase >= to_date('"+startDate+"', 'yyyy-mm-dd')\n" +
-                "      and purchases.date_of_purchase <= to_date('"+endDate+"', 'yyyy-mm-dd')\n" +
-                "    and date_part('dow', purchases.date_of_purchase) != 0\n" +
-                "    and date_part('dow', purchases.date_of_purchase) != 6" +
+                "    purchases.purchase_date >= to_date('"+startDate+"', 'yyyy-mm-dd')\n" +
+                "      and purchases.purchase_date <= to_date('"+endDate+"', 'yyyy-mm-dd')\n" +
+                "    and date_part('dow', purchases.purchase_date) != 0\n" +
+                "    and date_part('dow', purchases.purchase_date) != 6" +
                 "),\n" +
                 "ct2 as(\n" +
                 "    select ct1.first_name, ct1.last_name, products.name, products.price\n" +

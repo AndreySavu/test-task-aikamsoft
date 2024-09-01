@@ -25,8 +25,8 @@ public abstract class CriteriaSearcher {
 
             while (resultSet.next()) {
                 Customer customer = new Customer();
-                customer.setFirstName(resultSet.getString("firstname"));
-                customer.setLastName(resultSet.getString("lastname"));
+                customer.setFirstName(resultSet.getString("first_name"));
+                customer.setLastName(resultSet.getString("last_name"));
 
                 criteriaResult.add(customer);
             }
